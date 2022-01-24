@@ -2,7 +2,7 @@
 Name(s): Matthew Fields
 Name of Project: Wordle
 """
-
+import random
 print("Welcome to Worldle. You must guess a five letter word in six tries. \nOn your first guess, you will input a five letter word, and you will be shown with brackets if it is not in the word(()), in the word but in the wrong place ([]), or in the word and in the right place ({}). \nFor example, if you guess 'stare', and recieve (S)(T){A}[R][E], S and T are not in the word, R and E are in the word, but not in those positions, and A is in the word, in the same place as the guess. \nYour incorrect letters will be displayed above each guess. Each guess must have exactly five letters,  with no repeats of letters. This game was created by Josh Wardle. Good luck!")
 
 
@@ -11,11 +11,9 @@ print("Welcome to Worldle. You must guess a five letter word in six tries. \nOn 
 
 
 
-word1 =["MEATS", "NIGHT", "WATER", "TRAIN", "WEIRD", "PEAKS", "MOVIE", "PROXY", "STAKE", "STAGE", "LIGHT"]
+word1 =["MEATS", "NIGHT", "WATER", "TRAIN", "WEIRD", "PEAKS", "MOVIE", "PROXY", "STAKE", "STAGE", "LIGHT", "FOUND"]
 
-wordnum = int(input("Input a number between 1 and 11 to select word: "))
-while wordnum < 1 or wordnum > 11:
-  wordnum = int(input("That's not a number between 1 and 11. Try again: "))
+wordnum = random.randint(1,12)
 
 word = word1[wordnum-1]
 
@@ -62,7 +60,7 @@ while guesses < 6 and solve != 1:
     print("Congratulations. You have won in ", guesses, " guesses. ")
     solve = 1
 
-if guesses == 6:
+if guesses == 6 and solve !=1:
   print(" ")
   print("You have lost. The word was ", end, ". Please restart with a different word. ")
 #Write the main part of your program here. Use of the other pages is optional.
